@@ -1,0 +1,17 @@
+version: '3.7'
+
+services: 
+    database:
+        image: mongo
+        container_name: 'database-server'
+        # environment: 
+        #     - MONGO_INITDB_ROOT_USERNAME: 'admin'
+        #     - MONGO_INITDB_ROOT_PASSWORD: 'admin'
+        env_file: './docker/mongo/.env'
+        expose: 
+            - '27017'
+        volumes: 
+            # - './docker/mongo/data-db:/data/db'
+            # -   type: bind
+            #     source: './docker/mongo/data-db-long'
+            #     target: '/data/db'

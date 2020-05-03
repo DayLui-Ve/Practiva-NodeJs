@@ -1,0 +1,29 @@
+version: '3.7'
+
+services: 
+    database:
+        image: mongo
+        container_name: 'database-server'
+        env_file: './docker/mongo/.env'
+        expose: 
+            - '27017'
+        volumes: 
+            -   type: volume
+                source: database-data
+                target: /data/db
+            -   type: bind
+                source: ./docker/mongo/scripts/script.js
+                target: /docker-entrypoint-initdb.d/script.js
+            -   type: bind
+                source: ./docker/mongo/mongod.conf
+                target: /etc/mongo/mongod.conf
+        command: 
+            - '--config'
+            - '/etc/mongo/mongod.conf'
+        # restart: always
+        # restart: 'unless-stopped'
+        restart: 'no'
+        
+
+volumes:
+    database-data:
