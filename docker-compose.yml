@@ -20,9 +20,28 @@ services:
         command: 
             - '--config'
             - '/etc/mongo/mongod.conf'
-        # restart: always
-        # restart: 'unless-stopped'
-        restart: 'no'
+        restart: 'unless-stopped'
+    node-web:
+        build:
+            context: ./docker/node
+            dockerfile: Dockerfile
+            args:
+                PORT: 3000
+        image: node-console:v10.0
+        container_name: 'node-server'
+        volumes:
+            -   type: bind
+                source: ./package.json
+                target: /app/package.json
+            -   type: bind
+                source: ./server
+                target: /app/server
+        ports:
+            # - '3000:3000'
+            -   target: 3000
+                published: 8080
+                protocol: tcp
+                mode: host
         
 
 volumes:

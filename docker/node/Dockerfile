@@ -26,7 +26,7 @@ USER node
 
 # Definición del puerto
 # ENV PORT=3000
-ARG PORT=3000
+ARG PORT=80
 
 EXPOSE $PORT/tcp
 

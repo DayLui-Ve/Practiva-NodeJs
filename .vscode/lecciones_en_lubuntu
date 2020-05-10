@@ -1,0 +1,13 @@
+- Agregar parametro de compilacion
+	Solo agregar el build y context
+	No ejecutar aun
+- Nombre de archivo y args
+	Colocar el arg que nos interesa
+	Cambiar puerto en 80 para reasignarlo a 3000
+- Compilar y definir nombre imagen
+	No es con target es con image al mismo nivel de build
+- Compartir los archivos
+	Para pueda levantarse la app
+- Definir puertos
+	Explicar la corta pero iremos por la larga
+	Target es el puerto expuesto dentro del contenedor
