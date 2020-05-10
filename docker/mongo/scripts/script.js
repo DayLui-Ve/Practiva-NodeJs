@@ -6,12 +6,12 @@ db.createUser({
 });
 
 // Insertar dos usuarios en la DB
-db.test.insert({
+db.jobs.insert({
     name: 'Luijo',
     job: 'Developer'
 });
 
-db.test.insert({
+db.jobs.insert({
     name: 'Dante',
     job: 'Devil hunter'
 })

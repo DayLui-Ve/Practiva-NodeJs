@@ -1,0 +1,60 @@
+1- Proyecto con conexión a mongo
+    Descargar el proyecto y mostrar un primer vistazo
+2- Configurar versión
+    https://docs.docker.com/compose/compose-file/
+    Según la versión de docker que tengamos instalada
+3- Levantar servicio
+    Descarga la Imagen
+    Se comporta como si no indicaramos -d
+4- Asignar nombre al contenedor
+    Agregar atributo name
+5- Ejecutar en segundo plano
+    https://docs.docker.com/compose/reference/
+    Ir a las referencias de "up" -> buscamos detach
+6- Variables de entorno
+    https://hub.docker.com/_/mongo
+    Ir a "Environment Variables"
+    Conectarse con el mismo contenedor creado
+7- Uso de env_file
+    Creamos un archivo de texto plano en ./docker/mongo/.env
+8- Exponer puertos
+    Solo es para servicios vinculados
+9- Compartir Volume (directorios especifico)
+    Almacenar Persistencia de datos
+    Demostrar uso sintaxis corta    data-db
+    y sintaxis larga                data-db-long
+10- Compartir Volume (Volume)
+    Almacenar Persistencia de datos
+    Si crea el volume automático
+    Revisar con el inspect de la extansion vscode
+11- Agregar script de inicialización
+    Primero eliminar el volume
+    Tambien eliminar data-db y data-db-long
+    Copiarse el script y colocarlo en ./docker/mongo/scripts/script.js
+12- Agregar comandos
+    --config /etc/mongo/mongod.conf
+13- Politica de reinicio
+    Explicar un poco lo que dice 
+    https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy
+    always siempre reinicia
+    unless-stopped levanta solo manual
+    no reinicia el estado
+14- Agregar parametro de compilacion
+	Solo agregar el build y context
+	No ejecutar aun
+15- Nombre de archivo y args
+	Colocar el arg que nos interesa
+	Cambiar puerto en 80 para reasignarlo a 3000
+16- Compilar y definir nombre imagen
+	No es con target es con image al mismo nivel de build
+17- Compartir los archivos
+	Para pueda levantarse la app
+    aprovechar y cambiar por nodemon la ejecución del comando docker
+18- Definir puertos
+	Explicar la corta pero iremos por la larga
+	Target es el puerto expuesto dentro del contenedor
+19- Dependencia entre contenedores
+    node depende de mongo
+20- Enlace de red
+    Recordar colocarlo en los dos servicios
+    probar antes de aplicar bind ( Ya funciona jejeje)

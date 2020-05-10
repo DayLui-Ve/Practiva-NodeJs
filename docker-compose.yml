@@ -21,6 +21,10 @@ services:
             - '--config'
             - '/etc/mongo/mongod.conf'
         restart: 'unless-stopped'
+        networks: 
+            project-node-net:
+                aliases:
+                    - mongo-database
     node-web:
         build:
             context: ./docker/node
@@ -42,7 +46,14 @@ services:
                 published: 8080
                 protocol: tcp
                 mode: host
+        depends_on: 
+            - database
+        networks: 
+            - project-node-net
         
 
 volumes:
     database-data:
+
+networks:
+    project-node-net:
